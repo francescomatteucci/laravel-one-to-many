@@ -12,6 +12,17 @@
             </div>
 
             <div class="mb-3">
+                <label for="category_id" class="form-label">Categoria:</label>
+               <select name="category_id" id="category_id">
+                <option value="">--Seleziona Categoria --</option>
+                @foreach ($categories as $category)
+                    <option @selected($category->id == old ('category_id', $post->category_id) ) value="{{ $category->id }}">{{ $category->name }}</option>
+                @endforeach
+
+               </select>
+              </div>
+
+            <div class="mb-3">
                 <label for="slug" name="slug" class="form-label">Slug</label>
                 <input class="form-control" id="slug" name="slug" placeholder="Slug" value="{{ old('slug',$post->slug) }}">
             </div>
